@@ -19,9 +19,9 @@ while True:
 
     if len(faces) > 0:
         (x, y, w, h) = faces[0] # (x, y) are coord of top left pixel, w h are width height
-        cv2.rectangle(info, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        cv2.rectangle(info, (x, y), (x+w, y+h), (255, 255, 0), 2) # b-r-g color
         
-        frameWidth = info.shape[1]
+        frameWidth = info.shape[1] # take width
         centerX = x + w // 2
         normalizedX = int((centerX / frameWidth) * 180)
         
@@ -29,8 +29,8 @@ while True:
 
     cv2.imshow('Pha tracking', info)
 
-    esc = cv2.waitKey(1) & 0xff
-    if esc == 27:
+    pressEsc = cv2.waitKey(1) & 0xff
+    if pressEsc == 27:
         break
 
 # Clean up
