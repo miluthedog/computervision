@@ -1,23 +1,22 @@
 import cv2
 
-# Try capturing video from webcam (0 is usually the default camera)
-cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+camera = cv2.VideoCapture(0)
 
-if not cap.isOpened():
-    print("Error: Cannot open camera")
+if not camera.isOpened():
+    print("no cam")
     exit()
 
 while True:
-    ret, frame = cap.read()
-    if not ret:
-        print("Failed to grab frame")
+    running, info = camera.read()
+    if not running:
+        print("no info")
         break
 
-    cv2.imshow('Camera', frame)
+    cv2.imshow('camera', info)
 
-    esc = cv2.waitKey(30) & 0xff
+    esc = cv2.waitKey(1) & 0xff
     if esc == 27:
         break
 
-cap.release()
+camera.release()
 cv2.destroyAllWindows()
