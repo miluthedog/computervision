@@ -3,7 +3,7 @@ import serial
 import time
 
 # set up cv
-trainedData = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+trainedData = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 cam = cv2.VideoCapture(0)
 
 # set up arduino
